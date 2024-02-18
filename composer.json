@@ -1,0 +1,20 @@
+{
+    "name": "techimprovement/module-rate-limit",
+    "version": "1.0.0",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "^103.0"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "TechImprovement\\RateLimit\\": ""
+        }
+    }
+}
