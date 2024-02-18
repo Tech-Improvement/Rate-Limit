@@ -6,6 +6,9 @@
     "require": {
         "magento/framework": "^103.0"
     },
+    "license": [
+        "Unlicense"
+    ],
     "autoload": {
         "files": [
             "registration.php"
