@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="techimprovement" translate="label" sortOrder="10">
+            <label>TechImprovement</label>
+        </tab>
+        <section id="techimprovement_ratelimit" translate="label" type="text" sortOrder="10" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>Rate Limit</label>
+            <tab>techimprovement</tab>
+            <resource>TechImprovement_RateLimit::config_ratelimit</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Rate Limiting</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Rate Limiting</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_logging" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Enable Rate Limit Logging</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="logging_period" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <depends>
+                        <field id="enabled_logging">1</field>
+                    </depends>
+                    <label>Cleaning Period</label>
+                    <source_model>TechImprovement\RateLimit\Model\Source\CleaningPeriodOptions</source_model>
+                    <comment>Clean logging period</comment>
+                </field>
+                <field id="max_requests" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Max Requests</label>
+                    <comment>Numeric value for the number of tolerated Crawler Protection Rate Limit requests.</comment>
+                </field>
+                <field id="time_period" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Crawler Protection Rate Limit TTL</label>
+                    <comment>Time in seconds for the Crawler Protection Rate Limit lifetime.</comment>
+                </field>
+                <field id="known_bots" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Exempt Known Good Bots</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Choose to exempt known good bots like Googlebot and Bingbot from Crawler Protection rate
+                        limiting
+                    </comment>
+                </field>
+                <field id="whitelist" translate="label" type="textarea" sortOrder="50" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Whitelist IP List</label>
+                    <backend_model>TechImprovement\RateLimit\Model\Config\Backend\ValidateIpLists</backend_model>
+                    <comment>Enter IP addresses to whitelist from Crawler Protection rate limiting. One IP per line.
+                    </comment>
+                </field>
+                <field id="blacklist" translate="label" type="textarea" sortOrder="60" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Blacklist IP List</label>
+                    <backend_model>TechImprovement\RateLimit\Model\Config\Backend\ValidateIpLists</backend_model>
+                    <comment>Enter IP addresses to blacklist from Crawler Protection rate limiting. One IP per line.
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

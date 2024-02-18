@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <techimprovement_ratelimit>
+            <general>
+                <enabled>0</enabled>
+                <enabled_logging>0</enabled_logging>
+                <max_requests>100</max_requests>
+                <time_period>3600</time_period>
+                <enabled_logging>0</enabled_logging>
+                <logging_period>0 0 * * 1</logging_period>
+            </general>
+        </techimprovement_ratelimit>
+    </default>
+</config>
