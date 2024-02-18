@@ -59,6 +59,6 @@
 
 ## Support Our Project
 
-<p>If you find this project helpful, consider supporting us with a donation <a href="https://paypal.me/AnduelHoxha?country.x=US&locale.x=en_US"><img src="Donate-button.png"></a>. Scan the QR code below to donate:</p>
+<p>If you find this project helpful, consider supporting us with a donation <a href="https://paypal.me/AnduelHoxha?country.x=US&locale.x=en_US"><img width="150" src="Donate-button.png"></a>. Scan the QR code below to donate:</p>
 
 ![Donate QR Code](qrcode.png)
